@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:gauge="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+
+    <pl.pawelkleczkowski.customgauge.CustomGauge
+        android:id="@+id/temp"
+        android:layout_width="150dp"
+        android:layout_height="131dp"
+        android:layout_below="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="20dp"
+        app:gaugeEndValue="50"
+        app:gaugePointEndColor="@color/purple_500"
+        app:gaugePointStartColor="@color/purple_200"
+        app:gaugeStartAngle="135"
+        app:gaugeStartValue="0"
+        app:gaugeStrokeCap="ROUND"
+        app:gaugeStrokeColor="@color/teal_200"
+        app:gaugeStrokeWidth="15dp"
+        app:gaugeSweepAngle="270"
+        gauge:layout_constraintBottom_toBottomOf="parent"
+        gauge:layout_constraintEnd_toEndOf="parent"
+        gauge:layout_constraintHorizontal_bias="0.076"
+        gauge:layout_constraintStart_toStartOf="parent"
+        gauge:layout_constraintTop_toTopOf="parent"
+        gauge:layout_constraintVertical_bias="0.183" />
+
+
+    <TextView
+        android:id="@+id/temperatureView"
+        android:layout_width="65dp"
+        android:layout_height="37dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/value"
+        android:textSize="24sp"
+        gauge:layout_constraintBottom_toBottomOf="parent"
+        gauge:layout_constraintEnd_toStartOf="@+id/humidityView"
+        gauge:layout_constraintHorizontal_bias="0.328"
+        gauge:layout_constraintStart_toStartOf="parent"
+        gauge:layout_constraintTop_toTopOf="parent"
+        gauge:layout_constraintVertical_bias="0.211" />
+
+    <pl.pawelkleczkowski.customgauge.CustomGauge
+        android:id="@+id/humidity"
+        android:layout_width="150dp"
+        android:layout_height="131dp"
+        android:layout_below="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="20dp"
+        app:gaugeEndValue="100"
+        app:gaugePointEndColor="@color/purple_500"
+        app:gaugePointStartColor="@color/purple_200"
+        app:gaugeStartAngle="135"
+        app:gaugeStartValue="0"
+        app:gaugeStrokeCap="ROUND"
+        app:gaugeStrokeColor="@color/teal_200"
+        app:gaugeStrokeWidth="15dp"
+        app:gaugeSweepAngle="270"
+        gauge:layout_constraintBottom_toBottomOf="parent"
+        gauge:layout_constraintEnd_toEndOf="parent"
+        gauge:layout_constraintHorizontal_bias="0.823"
+        gauge:layout_constraintStart_toStartOf="parent"
+        gauge:layout_constraintTop_toTopOf="parent"
+        gauge:layout_constraintVertical_bias="0.183" />
+
+    <TextView
+        android:id="@+id/humidityView"
+        android:layout_width="65dp"
+        android:layout_height="39dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="Value"
+        android:textSize="24sp"
+        gauge:layout_constraintBottom_toBottomOf="parent"
+        gauge:layout_constraintEnd_toEndOf="parent"
+        gauge:layout_constraintHorizontal_bias="0.745"
+        gauge:layout_constraintStart_toStartOf="parent"
+        gauge:layout_constraintTop_toTopOf="parent"
+        gauge:layout_constraintVertical_bias="0.212" />
+
+    <pl.pawelkleczkowski.customgauge.CustomGauge
+        android:id="@+id/moisture"
+        android:layout_width="150dp"
+        android:layout_height="131dp"
+        android:layout_below="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="20dp"
+        app:gaugeEndValue="100"
+        app:gaugePointEndColor="@color/purple_500"
+        app:gaugePointStartColor="@color/purple_200"
+        app:gaugeStartAngle="135"
+        app:gaugeStartValue="0"
+        app:gaugeStrokeCap="ROUND"
+        app:gaugeStrokeColor="@color/teal_200"
+        app:gaugeStrokeWidth="15dp"
+        app:gaugeSweepAngle="270"
+        gauge:layout_constraintBottom_toBottomOf="parent"
+        gauge:layout_constraintEnd_toEndOf="parent"
+        gauge:layout_constraintHorizontal_bias="0.44"
+        gauge:layout_constraintStart_toStartOf="parent"
+        gauge:layout_constraintTop_toTopOf="parent"
+        gauge:layout_constraintVertical_bias="0.475" />
+
+    <TextView
+        android:id="@+id/moistureView"
+        android:layout_width="64dp"
+        android:layout_height="37dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="Value"
+        android:textSize="24sp"
+        gauge:layout_constraintBottom_toBottomOf="parent"
+        gauge:layout_constraintEnd_toEndOf="parent"
+        gauge:layout_constraintHorizontal_bias="0.455"
+        gauge:layout_constraintStart_toStartOf="parent"
+        gauge:layout_constraintTop_toTopOf="parent"
+        gauge:layout_constraintVertical_bias="0.472" />
+
+    <TextView
+        android:id="@+id/textView7abdb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/click_here_for_force_update"
+        android:textColor="@color/design_default_color_error"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        gauge:layout_constraintHorizontal_bias="0.659"
+        gauge:layout_constraintVertical_bias="0.977" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="63dp"
+        android:layout_height="33dp"
+        app:icon="@android:drawable/ic_menu_rotate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        gauge:layout_constraintHorizontal_bias="0.928"
+        gauge:layout_constraintVertical_bias="0.992" />
+
+    <ToggleButton
+        android:id="@+id/motor_button"
+        android:layout_width="128dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="144dp"
+        android:gravity="center"
+        android:text="ToggleButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        gauge:layout_constraintHorizontal_bias="0.438"
+        gauge:layout_constraintTop_toBottomOf="@+id/textView5"
+        gauge:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:gravity="center"
+        android:text="SUGGESTED MOTOR STATUS :"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/motor_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        gauge:layout_constraintHorizontal_bias="0.341"
+        gauge:layout_constraintTop_toBottomOf="@+id/moisture"
+        gauge:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="188dp"
+        android:gravity="center"
+        android:text="Motor Status"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView7abdb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        gauge:layout_constraintHorizontal_bias="0.434"
+        gauge:layout_constraintTop_toBottomOf="@+id/moisture"
+        gauge:layout_constraintVertical_bias="0.509" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Temperature"
+        android:textSize="24sp"
+        gauge:layout_constraintBottom_toTopOf="@+id/temp"
+        gauge:layout_constraintEnd_toStartOf="@+id/textView2"
+        gauge:layout_constraintHorizontal_bias="0.216"
+        gauge:layout_constraintStart_toStartOf="parent"
+        gauge:layout_constraintTop_toTopOf="parent"
+        gauge:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="@string/humidity"
+        android:textSize="24sp"
+        gauge:layout_constraintBottom_toTopOf="@+id/humidity"
+        gauge:layout_constraintEnd_toEndOf="parent"
+        gauge:layout_constraintHorizontal_bias="0.765"
+        gauge:layout_constraintStart_toStartOf="parent"
+        gauge:layout_constraintTop_toTopOf="parent"
+        gauge:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/moisture"
+        android:textSize="24sp"
+        gauge:layout_constraintBottom_toTopOf="@+id/moisture"
+        gauge:layout_constraintEnd_toEndOf="parent"
+        gauge:layout_constraintHorizontal_bias="0.463"
+        gauge:layout_constraintStart_toStartOf="parent"
+        gauge:layout_constraintTop_toTopOf="parent"
+        gauge:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sensor Data"
+        android:textSize="30sp"
+        gauge:layout_constraintBottom_toTopOf="@+id/textView"
+        gauge:layout_constraintEnd_toEndOf="parent"
+        gauge:layout_constraintStart_toStartOf="parent"
+        gauge:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/motor_suggested"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text='"OFF"'
+        android:textSize="18sp"
+        android:textStyle="bold"
+        gauge:layout_constraintBottom_toTopOf="@+id/motor_button"
+        gauge:layout_constraintEnd_toEndOf="parent"
+        gauge:layout_constraintHorizontal_bias="0.0"
+        gauge:layout_constraintStart_toEndOf="@+id/textView4"
+        gauge:layout_constraintTop_toBottomOf="@+id/moisture"
+        gauge:layout_constraintVertical_bias="0.955" />
+</androidx.constraintlayout.widget.ConstraintLayout>

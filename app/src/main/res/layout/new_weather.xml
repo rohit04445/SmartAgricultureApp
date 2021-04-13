@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:gauge="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+
+    <pl.pawelkleczkowski.customgauge.CustomGauge
+        android:id="@+id/tempgauge"
+        android:layout_width="150dp"
+        android:layout_height="131dp"
+        android:layout_below="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="20dp"
+        app:gaugeEndValue="50"
+        app:gaugePointEndColor="@color/purple_500"
+        app:gaugePointStartColor="@color/purple_200"
+        app:gaugeStartAngle="135"
+        app:gaugeStartValue="0"
+        app:gaugeStrokeCap="ROUND"
+        app:gaugeStrokeColor="@color/teal_200"
+        app:gaugeStrokeWidth="15dp"
+        app:gaugeSweepAngle="270"
+        gauge:layout_constraintBottom_toBottomOf="parent"
+        gauge:layout_constraintEnd_toEndOf="parent"
+        gauge:layout_constraintHorizontal_bias="0.061"
+        gauge:layout_constraintStart_toStartOf="parent"
+        gauge:layout_constraintTop_toTopOf="parent"
+        gauge:layout_constraintVertical_bias="0.175" />
+
+
+    <TextView
+        android:id="@+id/temperatureViewWeathernew"
+        android:layout_width="66dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/value"
+        android:textSize="24sp"
+        gauge:layout_constraintBottom_toBottomOf="parent"
+        gauge:layout_constraintEnd_toStartOf="@+id/humiditygauge"
+        gauge:layout_constraintHorizontal_bias="0.0"
+        gauge:layout_constraintStart_toStartOf="parent"
+        gauge:layout_constraintTop_toTopOf="parent"
+        gauge:layout_constraintVertical_bias="0.215" />
+
+    <pl.pawelkleczkowski.customgauge.CustomGauge
+        android:id="@+id/humiditygauge"
+        android:layout_width="150dp"
+        android:layout_height="131dp"
+        android:layout_below="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="20dp"
+        app:gaugeEndValue="100"
+        app:gaugePointEndColor="@color/purple_500"
+        app:gaugePointStartColor="@color/purple_200"
+        app:gaugeStartAngle="135"
+        app:gaugeStartValue="0"
+        app:gaugeStrokeCap="ROUND"
+        app:gaugeStrokeColor="@color/teal_200"
+        app:gaugeStrokeWidth="15dp"
+        app:gaugeSweepAngle="270"
+        gauge:layout_constraintBottom_toBottomOf="parent"
+        gauge:layout_constraintEnd_toEndOf="parent"
+        gauge:layout_constraintHorizontal_bias="0.823"
+        gauge:layout_constraintStart_toStartOf="parent"
+        gauge:layout_constraintTop_toTopOf="parent"
+        gauge:layout_constraintVertical_bias="0.175" />
+
+
+    <TextView
+        android:id="@+id/humidityViewWeathernew"
+        android:layout_width="66dp"
+        android:layout_height="36dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/value"
+        android:textSize="24sp"
+        gauge:layout_constraintBottom_toBottomOf="parent"
+        gauge:layout_constraintEnd_toEndOf="parent"
+        gauge:layout_constraintHorizontal_bias="0.75"
+        gauge:layout_constraintStart_toStartOf="parent"
+        gauge:layout_constraintTop_toTopOf="parent"
+        gauge:layout_constraintVertical_bias="0.208" />
+
+    <pl.pawelkleczkowski.customgauge.CustomGauge
+        android:id="@+id/windgauge"
+        android:layout_width="150dp"
+        android:layout_height="131dp"
+        android:layout_below="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="20dp"
+        app:gaugeEndValue="100"
+        app:gaugePointEndColor="@color/purple_500"
+        app:gaugePointStartColor="@color/purple_200"
+        app:gaugeStartAngle="135"
+        app:gaugeStartValue="0"
+        app:gaugeStrokeCap="ROUND"
+        app:gaugeStrokeColor="@color/teal_200"
+        app:gaugeStrokeWidth="15dp"
+        app:gaugeSweepAngle="270"
+        gauge:layout_constraintBottom_toBottomOf="parent"
+        gauge:layout_constraintEnd_toEndOf="parent"
+        gauge:layout_constraintHorizontal_bias="0.498"
+        gauge:layout_constraintStart_toStartOf="parent"
+        gauge:layout_constraintTop_toTopOf="parent"
+        gauge:layout_constraintVertical_bias="0.483" />
+
+    <TextView
+        android:id="@+id/windSpeedViewWeathernew"
+        android:layout_width="64dp"
+        android:layout_height="32dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/value"
+        android:textSize="24sp"
+        gauge:layout_constraintBottom_toBottomOf="parent"
+        gauge:layout_constraintEnd_toEndOf="parent"
+        gauge:layout_constraintHorizontal_bias="0.498"
+        gauge:layout_constraintStart_toStartOf="parent"
+        gauge:layout_constraintTop_toTopOf="parent"
+        gauge:layout_constraintVertical_bias="0.483" />
+
+    <TextView
+        android:id="@+id/type_of_weather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="Weather"
+        android:textSize="30sp"
+        gauge:layout_constraintBottom_toTopOf="@+id/textView7abdb"
+        gauge:layout_constraintEnd_toEndOf="parent"
+        gauge:layout_constraintHorizontal_bias="0.503"
+        gauge:layout_constraintStart_toStartOf="parent"
+        gauge:layout_constraintTop_toBottomOf="@+id/windgauge"
+        gauge:layout_constraintVertical_bias="0.0" />
+
+    <HorizontalScrollView
+
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="384dp"
+        android:layout_height="127dp"
+        android:layout_marginTop="64dp"
+        gauge:layout_constraintBottom_toBottomOf="parent"
+        gauge:layout_constraintEnd_toEndOf="parent"
+        gauge:layout_constraintHorizontal_bias="0.592"
+        gauge:layout_constraintStart_toStartOf="parent"
+        gauge:layout_constraintTop_toBottomOf="@+id/type_of_weather"
+        gauge:layout_constraintVertical_bias="0.423">
+
+        <LinearLayout
+            android:id="@+id/horizontalScrollBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" />
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/temperature"
+        android:textSize="24sp"
+        gauge:layout_constraintBottom_toTopOf="@+id/tempgauge"
+        gauge:layout_constraintEnd_toStartOf="@+id/textView7"
+        gauge:layout_constraintHorizontal_bias="0.225"
+        gauge:layout_constraintStart_toStartOf="parent"
+        gauge:layout_constraintTop_toTopOf="parent"
+        gauge:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/humidity"
+        android:textSize="24sp"
+        gauge:layout_constraintBottom_toTopOf="@+id/humiditygauge"
+        gauge:layout_constraintEnd_toEndOf="parent"
+        gauge:layout_constraintHorizontal_bias="0.752"
+        gauge:layout_constraintStart_toStartOf="parent"
+        gauge:layout_constraintTop_toTopOf="parent"
+        gauge:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wind Speed"
+        android:textSize="24sp"
+        gauge:layout_constraintBottom_toTopOf="@+id/windgauge"
+        gauge:layout_constraintEnd_toEndOf="parent"
+        gauge:layout_constraintHorizontal_bias="0.498"
+        gauge:layout_constraintStart_toStartOf="parent"
+        gauge:layout_constraintTop_toTopOf="parent"
+        gauge:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weather Forecast"
+        android:textSize="24sp"
+        gauge:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+        gauge:layout_constraintEnd_toEndOf="parent"
+        gauge:layout_constraintStart_toStartOf="parent"
+        gauge:layout_constraintTop_toBottomOf="@+id/type_of_weather"
+        gauge:layout_constraintVertical_bias="0.66" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Present Weather"
+        android:textSize="30sp"
+        gauge:layout_constraintBottom_toTopOf="@+id/textView6"
+        gauge:layout_constraintEnd_toEndOf="parent"
+        gauge:layout_constraintStart_toStartOf="parent"
+        gauge:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

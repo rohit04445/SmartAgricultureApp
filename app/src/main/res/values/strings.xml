@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SmartAgricultureApp</string>
+    <string name="moisture">Moisture</string>
+    <string name="humidity">Humidity</string>
+    <string name="temperature">Temperature</string>
+    <string name="value">Value</string>
+    <string name="click_here_for_force_update">Click Here For Force Update</string>
+
+</resources>
