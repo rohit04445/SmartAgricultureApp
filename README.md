@@ -17,10 +17,10 @@ Server update sensor data every 30 mins in its database  and weather data every 
 
 Android data updated every 2mins 
 <p align="center">
-<img src="extra/img.jpg" align="center">
+<img src="extras/img.jpg" align="center">
 </p>
 <p align="center">
-<img src="extra/img3.jpg" align="center">
+<img src="extras/img1.jpg" align="center">
 </p>
 
 
