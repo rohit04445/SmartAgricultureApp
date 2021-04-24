@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
     private CustomGauge tem;
     private CustomGauge hum;
     private CustomGauge mois;
-    TextView temperature, humidity, moisture,motor_suggested;
-
+    TextView temperature, humidity, moisture, motor_suggested;
+    boolean isFirstTime;
     ToggleButton motor_button;
     boolean force = false;
 
@@ -52,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.new_main);
         btnUpdate = findViewById(R.id.button);
         motor_button = findViewById(R.id.motor_button);
-        motor_suggested=findViewById(R.id.motor_suggested);
+        isFirstTime=true;
+        motor_suggested = findViewById(R.id.motor_suggested);
         tem = findViewById(R.id.temp);
         hum = findViewById(R.id.humidity);
         mois = findViewById(R.id.moisture);
@@ -60,15 +61,36 @@ public class MainActivity extends AppCompatActivity {
         moisture = findViewById(R.id.moistureView);
         humidity = findViewById(R.id.humidityView);
         motor_button.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked) {
-                new MotorTask().execute("https://project-iotdata.herokuapp.com/on");
-                data.motor_status="ON";
+            if(!isFirstTime)
+            {
+                pd = new ProgressDialog(MainActivity.this);
+                pd.setMessage("Please wait");
+                pd.setCancelable(false);
+                pd.show();
+               if (isChecked) {
+                new Thread(() -> {
+                    MotorOperation("https://project-iotdata.herokuapp.com/on");
+                    pd.dismiss();
+
+                }).start();
                 Toast.makeText(getApplicationContext(), "ON", Toast.LENGTH_SHORT).show();
-            } else {
-                new MotorTask().execute("https://project-iotdata.herokuapp.com/off");
-                data.motor_status="OFF";
+                data.motor_status = "ON";
+               } else {
+                new Thread(() -> {
+                    MotorOperation("https://project-iotdata.herokuapp.com/off");
+                    pd.dismiss();
+
+                }).start();
                 Toast.makeText(getApplicationContext(), "OFF", Toast.LENGTH_SHORT).show();
-                // The toggle is disabled
+                data.motor_status = "OFF";
+
+                   // The toggle is disabled
+            }
+                update();
+            }
+            else
+            {
+                isFirstTime=false;
             }
         });
         btnUpdate.setOnClickListener(v -> {
@@ -80,6 +102,41 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void MotorOperation(String arg) {
+
+        HttpURLConnection connection = null;
+        BufferedReader reader = null;
+        try {
+            URL url = new URL(arg);
+            connection = (HttpURLConnection) url.openConnection();
+            connection.connect();
+            InputStream stream = connection.getInputStream();
+            reader = new BufferedReader(new InputStreamReader(stream));
+            StringBuilder buffer = new StringBuilder();
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                buffer.append(line).append("\n");
+            }
+
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null) {
+                connection.disconnect();
+            }
+            try {
+                if (reader != null) {
+                    reader.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -117,7 +174,6 @@ public class MainActivity extends AppCompatActivity {
 
         protected void onPreExecute() {
             super.onPreExecute();
-            Log.e("Executing", "hrrah");
             if (force) {
                 pd = new ProgressDialog(MainActivity.this);
                 pd.setMessage("Please wait");
@@ -185,69 +241,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-    private class MotorTask extends AsyncTask<String, String, String> {
 
-        protected void onPreExecute() {
-            super.onPreExecute();
-            Log.e("Executing", "hrrah");
-            if (force) {
-                pd = new ProgressDialog(MainActivity.this);
-                pd.setMessage("Please wait");
-                pd.setCancelable(false);
-                pd.show();
-                force = false;
-            }
-        }
-
-        protected String doInBackground(String... params) {
-
-
-            HttpURLConnection connection = null;
-            BufferedReader reader = null;
-
-            try {
-                URL url = new URL(params[0]);
-                connection = (HttpURLConnection) url.openConnection();
-                connection.connect();
-                InputStream stream = connection.getInputStream();
-                reader = new BufferedReader(new InputStreamReader(stream));
-                StringBuilder buffer = new StringBuilder();
-                String line;
-
-                while ((line = reader.readLine()) != null) {
-                    buffer.append(line).append("\n");
-                }
-                return "done";
-
-
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } finally {
-                if (connection != null) {
-                    connection.disconnect();
-                }
-                try {
-                    if (reader != null) {
-                        reader.close();
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-            if (pd.isShowing()) {
-                pd.dismiss();
-            }
-
-        }
-    }
 
     private void update() {
         try {
